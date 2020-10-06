@@ -14,12 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* ====== Sign =======*/
 Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
+Route::post('/details', 'AuthController@details');
 
 Route::middleware('auth:api')->group(function() {
 
+    /*====== Users =======*/
     Route::apiResource('/users', 'UserController');
+
+    /*====== Posts =======*/
     Route::apiResource('/posts', 'PostController');
 });
 
